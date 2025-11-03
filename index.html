@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIP sopore</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Configure Tailwind to use 'Inter' font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Using the exact colors from the original site
+                        'guru-blue': '#0d4a8a',
+                        'guru-blue-dark': '#0a3a6e',
+                        'guru-gray': '#f4f4f4',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles for sliders and navigation */
+        .nav-item.has-dropdown > a::after {
+            content: '\f107'; /* Font Awesome down arrow */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 0.5rem;
+        }
+
+        .nav-item.has-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Slider Styles */
+        .slide {
+            display: none; /* Hide all slides by default */
+        }
+        .slide.active {
+            display: block; /* Show active slide */
+        }
+        
+        /* Fade animation for slides */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* Notification Ticker Animation */
+        .ticker-wrap {
+            overflow: hidden;
+        }
+        .ticker-move {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- 
+      ========================================================
+      TOP BAR (Contact info, Socials)
+      ========================================================
+    -->
+    <div class="bg-guru-blue text-white p-2">
+        <div class="container mx-auto max-w-7xl px-4 flex justify-between items-center text-sm">
+            <!-- Left Side: Contact -->
+            <div class="flex flex-col md:flex-row md:space-x-4">
+                <a href="mailto:gipss2011@gmail.com" class="hover:text-gray-300">
+                    <i class="fas fa-envelope mr-1"></i> gipss2011@gmail.com
+                </a>
+                <a href="tel:+917006680467" class="hover:text-gray-300">
+                    <i class="fas fa-phone mr-1"></i> +91 7006680467
+                </a>
+            </div>
+            <!-- Right Side: Social -->
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-red-500"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-orange-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="bg-white text-guru-blue px-3 py-1 rounded-md text-xs font-semibold hover:bg-yellow-200">Guru Hospital</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+      ========================================================
+      MAIN HEADER & NAVIGATION
+      ========================================================
+    -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto max-w-7xl px-4 flex justify-between items-center py-3">
+            <!-- Logo -->
+            <a href="#">
+                <img src="guru-sticky-logo.webp" alt="Guru Institute Logo" class="h-12 md:h-16">
+            </a>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-2xl text-guru-blue">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex space-x-6 items-center font-medium text-guru-blue">
+                <li class="nav-item"><a href="#" class="hover:text-color-guru-blue-dark">Home</a></li>
+                <li class="nav-item has-dropdown relative group">
+                    <a href="#" class="hover:text-guru-blue-dark">About Us</a>
+                    <ul class="dropdown-menu hidden absolute top-full left-0 bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-10 group-hover:block">
+                        <li><a href="aboutus.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Introduction</a></li>
+                        <li><a href="facilities.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Facilities</a></li>
+                        <li><a href="principlesmsg.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Principal's Message</a></li>
+                        <li><a href="chairmansmsg.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Chairman's Message</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown relative group">
+                    <a href="courses.html" class="hover:text-guru-blue-dark">Courses</a>
+                    <ul class="dropdown-menu hidden absolute top-full left-0 bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-10">
+                        <li><a href="paramedicalcourse.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Paramedical Courses</a></li>
+                        <li><a href="bsccourse.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">BSc Courses</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown relative group">
+                    <a href="gallery.html" class="hover:text-guru-blue-dark">Gallery</a>
+                    <ul class="dropdown-menu hidden absolute top-full left-0 bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-10">
+                        <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Image Gallery</a></li>
+                        <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Event Gallery</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown relative group">
+                    <a href="#" class="hover:text-guru-blue-dark">Admission</a>
+                    <ul class="dropdown-menu hidden absolute top-full left-0 bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-10">
+                        <li><a href="adm-process.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Admission Procedure</a></li>
+                        <li><a href="downlaod.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-guru-gray">Downloads</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="contact.html" class="hover:text-guru-blue-dark">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-xl hidden">
+            <ul class="flex flex-col space-y-1 p-4 font-medium text-guru-blue">
+                <li><a href="index.html" class="block py-2 px-3 rounded-md hover:bg-guru-gray">Home</a></li>
+                <li><a href="aboutus.html" class="block py-2 px-3 rounded-md hover:bg-guru-gray">About Us</a></li>
+                <li><a href="courses.html" class="block py-2 px-3 rounded-md hover:bg-guru-gray">Courses</a></li>
+                <li><a href="gallery.html" class="block py-2 px-3 rounded-md hover:bg-guru-gray">Gallery</a></li>
+                <li><a href="adm-process.html" class="block py-2 px-3 rounded-md hover:bg-guru-gray">Admission</a></li>
+                <li><a href="contact.html" class="block py-2 px-3 rounded-md hover:bg-guru-gray">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 
+      ========================================================
+      PAGE CONTENT
+      ========================================================
+    -->
+    <main>
+
+        <!-- 
+          =================================
+          1. HERO SLIDER
+          =================================
+        -->
+        <section class="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
+            <!-- Slide 1 -->
+            <div class="slide active fade">
+                <img src="homepagebgallstudents.webp" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="absolute bottom-10 left-5 text-white p-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4">Limitless Learning Guaranteed</h2>
+                        <p class="text-lg md:text-xl mb-6">Qualified Mentors, Well Developed Infrastructure, Offering Top Courses</p>
+                        <a href="#" class="bg-guru-blue text-white font-semibold py-3 px-6 rounded-lg hover:bg-guru-blue-dark transition duration-300">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide fade">
+                <img src="home1gips.jpeg" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="absolute bottom-5 left-10 text-white p-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4">Inspiring Futures</h2>
+                        <p class="text-lg md:text-xl mb-6">Affiliated with University Of Kashmir & Nursing Council</p>
+                        <a href="#" class="bg-guru-blue text-white font-semibold py-3 px-6 rounded-lg hover:bg-guru-blue-dark transition duration-300">Our Courses</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="slider-prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-60 p-2 rounded-full text-guru-blue text-2xl hover:bg-opacity-100 z-10">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-next absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full text-guru-blue text-2xl hover:bg-opacity-100 z-10">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+
+        <!-- 
+          =================================
+          2. NOTIFICATION TICKER
+          =================================
+        -->
+        <div class="bg-guru-blue-dark text-white">
+            <div class="container mx-auto max-w-7xl px-4 flex items-center">
+                <span class="bg-red-600 font-semibold p-3 text-sm flex-shrink-0">Notification</span>
+                <div class="ticker-wrap flex-1 p-3">
+                    <div class="ticker-move">
+                        <span class="mx-8">Admission for FMPHW for BOPEE candidates till 4 pm today i.e., 15/08/2025</span>
+                        <span class="mx-8">Welcome to the Official website of Guru Paramedical and Nursing College, Sopore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+          =================================
+          3. ABOUT US SNIPPET
+          =================================
+        -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-guru-blue mb-4">About Us</h2>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Guru Institute of Paramedical Sciences</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Guru Institute of Paramedical Sciences extends a warm and positive invitation to all students and parents. Young buds with their youthful desire for learning and education have been considered family in this institution.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Students who have just come out of schools and are willing to learn and perceive success in their lives have always been welcomed in this institution. All due on the expectations this institution is verily one of the best paramedical colleges of the state.
+                        </p>
+                        <a href="aboutus.html" class="bg-guru-blue text-white font-semibold py-3 px-6 rounded-lg hover:bg-guru-blue-dark transition duration-300">View More</a>
+                    </div>
+                    <div>
+                        <img src="about2.webp" alt="Institute Building" class="rounded-lg shadow-xl w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          4. OUR COURSES
+          =================================
+        -->
+        <section class="py-16 bg-guru-gray">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-guru-blue mb-2">Our Courses</h2>
+                    <p class="text-xl text-gray-700">Courses we offer</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Course Card 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2">
+                        <img src="gnm.webp" alt="GNM" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-guru-blue mb-2">GNM</h4>
+                            <p class="text-gray-600 text-sm mb-4">The role of a Nurse in giving health care to restore and maintain health is recognized all over the world.</p>
+                            <a href="#" class="text-guru-blue font-semibold hover:text-guru-blue-dark">Read More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Course Card 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2">
+                        <img src="fmphw.webp" alt="FMPHW" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-guru-blue mb-2">FMPHW</h4>
+                            <p class="text-gray-600 text-sm mb-4">In order to provide Primary Health Care at a Sub-centre level in a village, the need for a Multipurpose Health...</p>
+                            <a href="#" class="text-guru-blue font-semibold hover:text-guru-blue-dark">Read More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Course Card 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2">
+                        <img src="mlt.webp" alt="Diploma OT" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-semibold text-guru-blue mb-2">Diploma OT</h4>
+                            <p class="text-gray-600 text-sm mb-4">Operation Theater Technicians are the pivot of the surgical care given in a hospital. They are required to...</p>
+                            <a href="#" class="text-guru-blue font-semibold hover:text-guru-blue-dark">Read More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Add more cards as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          5. MISSION & VISION
+          =================================
+        -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Our Vision -->
+                    <div class="bg-guru-gray p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-guru-blue mb-4">Our Vision</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Our Institute will be a world leader in preparing professionals who provide leadership and exemplary educational and related services to improve the lives of individuals in a society.
+                        </p>
+                    </div>
+                    <!-- Our Mission -->
+                    <div class="bg-guru-gray p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-guru-blue mb-4">Our Mission</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            The mission of GURU Institute is to prepare future leaders for our society who will also be active citizens. We achieve this by firmly believing in the transformative potential of science education.
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          6. WHY GURU
+          =================================
+        -->
+        <section class="py-16 bg-guru-blue text-white">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-2">WHY GURU</h2>
+                    <p class="text-xl text-gray-300">Institute of Paramedical Sciences</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <span class="text-5xl font-bold text-guru-blue mr-4">01.</span>
+                            <h4 class="text-xl font-semibold text-guru-blue">Infrastructure & Hostel</h4>
+                        </div>
+                        <p class="text-gray-600">Our College Posesses Best Infrastructure in Baramulla District along with great hostel facilities.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <span class="text-5xl font-bold text-guru-blue mr-4">02.</span>
+                            <h4 class="text-xl font-semibold text-guru-blue">Best Faculty & Library</h4>
+                        </div>
+                        <p class="text-gray-600">Excellent and experienced faculty and a well versed library.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <span class="text-5xl font-bold text-guru-blue mr-4">03.</span>
+                            <h4 class="text-xl font-semibold text-guru-blue">Smart Classrooms</h4>
+                        </div>
+                        <p class="text-gray-600">An EdTech-upgraded classroom that enhances the teaching and learning process.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          7. LATEST EVENTS
+          =================================
+        -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-guru-blue mb-2">Our latest Events</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Event Card 1 -->
+                    <div class="flex flex-col sm:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="homepagebgallstudents.webp" alt="Event 1" class="sm:w-1/3 h-48 sm:h-auto object-cover">
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">2023-07-26</span>
+                                <h4 class="text-xl font-semibold text-guru-blue my-2">Freshers Day at GURU Institute</h4>
+                                <p class="text-gray-600 text-sm mb-4">A celebration intended to extend a kind welcome to newcomers, enhance the feeling of community...</p>
+                            </div>
+                            <a href="#" class="text-guru-blue font-semibold hover:text-guru-blue-dark">View More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Event Card 2 -->
+                    <div class="flex flex-col sm:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="about2.webp" alt="Event 2" class="sm:w-1/3 h-48 sm:h-auto object-cover">
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">2023-03-14</span>
+                                <h4 class="text-xl font-semibold text-guru-blue my-2">Seminar On General Nursing</h4>
+                                <p class="text-gray-600 text-sm mb-4">Guru Institute of Paramedical Sciences extends a warm and positive invitation to all students...</p>
+                            </div>
+                            <a href="#" class="text-guru-blue font-semibold hover:text-guru-blue-dark">View More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          8. TESTIMONIALS
+          =================================
+        -->
+        <section class="py-16 bg-guru-gray">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-guru-blue mb-2">Testimonials</h2>
+                    <p class="text-xl text-gray-700">Review from Our Students</p>
+                </div>
+                
+                <div class="relative w-full max-w-3xl mx-auto overflow-hidden">
+                    <div class="testimonial-slider-track">
+                        <!-- Testimonial Slide 1 -->
+                        <div class="testimonial-slide">
+                            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                                <img src="bwwbicf8lmzuzdxf.webp" alt="Bisma Gulzar" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-guru-blue">
+                                <p class="text-gray-600 italic mb-4">“This is the best paramedical college in the valley, encouraging extra-curricular activities while laying an excellent emphasis on regular studies...”</p>
+                                <h5 class="text-lg font-semibold text-guru-blue">Bisma Gulzar</h5>
+                                <span class="text-sm text-gray-500">Lab Assistant</span>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slide 2 -->
+                        <div class="testimonial-slide">
+                            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                                <img src="bwwbicf8lmzuxpaw.webp" alt="jemima Mushtaq" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-guru-blue">
+                                <p class="text-gray-600 italic mb-4">“GURU Institute is currently one of the best paramedical institutes in valley. A student at this institution gets the best infrastructure, global exposure...”</p>
+                                <h5 class="text-lg font-semibold text-guru-blue">jemima Mushtaq</h5>
+                                <span class="text-sm text-gray-500">GNM</span>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slide 3 -->
+                        <div class="testimonial-slide">
+                            <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                                <img src="https://placehold.co/100x100/0d4a8a/white?text=A" alt="Amir Nazir" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-guru-blue">
+                                <p class="text-gray-600 italic mb-4">“This is the best paramedical college in the valley... the faculty is one of the most dedicated I have ever seen and this is probably the ideal college...”</p>
+                                <h5 class="text-lg font-semibold text-guru-blue">Amir Nazir</h5>
+                                <span class="text-sm text-gray-500">OT Tech</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Controls -->
+                    <button class="testimonial-prev absolute top-1/2 left-0 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 rounded-full text-guru-blue text-2xl hover:bg-opacity-100 z-10 -ml-4">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-next absolute top-1/2 right-0 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 rounded-full text-guru-blue text-2xl hover:bg-opacity-100 z-10 -mr-4">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          =================================
+          9. GALLERY SNIPPET
+          =================================
+        -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-guru-blue mb-2">Gallery</h2>
+                    <p class="text-xl text-gray-700">Go Through Our Gallery</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <a href="#"><img src="bscot.webp" alt="Gallery Image 1" class="rounded-lg shadow-lg w-full h-auto transition-transform transform hover:scale-105"></a>
+                    <a href="#"><img src="mlt.webp" alt="Gallery Image 2" class="rounded-lg shadow-lg w-full h-auto transition-transform transform hover:scale-105"></a>
+                    <a href="#"><img src="renal.webp" alt="Gallery Image 3" class="rounded-lg shadow-lg w-full h-auto transition-transform transform hover:scale-105"></a>
+                    <a href="#"><img src="librarayhomebg.jpeg" alt="Gallery Image 4" class="rounded-lg shadow-lg w-full h-auto transition-transform transform hover:scale-105"></a>
+                    <a href="#"><img src="skelton.webp" alt="Gallery Image 5" class="rounded-lg shadow-lg w-full h-auto transition-transform transform hover:scale-105"></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 
+      ========================================================
+      FOOTER
+      ========================================================
+    -->
+    <footer class="bg-guru-blue text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto max-w-7xl px-4">
+            <!-- Footer Top: Links Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: About -->
+                <div>
+                    <img src="g-logo.webp" alt="GIPS Logo" class="h-12 mb-4 bg-gray p-2 rounded-md">
+                    <p class="text-sm leading-relaxed mb-4">
+                        Guru Institute of Paramedical Sciences extends a warm and positive invitation to all students and parents. This college holds hands wide open.
+                    </p>
+                    <h4 class="font-semibold text-white mb-2">Follow us on</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white text-guru-blue flex items-center justify-center hover:bg-blue-200"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white text-guru-blue flex items-center justify-center hover:bg-red-200"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white text-guru-blue flex items-center justify-center hover:bg-orange-200"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Useful Links -->
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4 border-b-2 border-gray-500 pb-2">Useful Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="aboutus.html" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> About US</a></li>
+                        <li><a href="principlesmsg.html" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Principal Message</a></li>
+                        <li><a href="chairmansmsg.html" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Chairman Message</a></li>
+                        <li><a href="#" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Bio-Medical Waste</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4 border-b-2 border-gray-500 pb-2">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://www.jkbopee.gov.in/" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> JKBOPEE</a></li>
+                        <li><a href="gallery.html" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Gallery</a></li>
+                        <li><a href="downlaod.html" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Downloads</a></li>
+                        <li><a href="contact.html" class="hover:text-white flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us -->
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4 border-b-2 border-gray-500 pb-2">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-white"></i>
+                            <span>KFC Complex, New Colony, Sopore-193201</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-white"></i>
+                            <span>01954222922</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-white"></i>
+                            <span>gipss2011@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom: Copyright -->
+            <div class="border-t border-gray-700 pt-6 text-sm text-center md:flex md:justify-between">
+                <p>Copyright © 2025 GIPS All Rights Reserved.</p>
+                <p>Designed & Developed by Ahsan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+      ========================================================
+      JAVASCRIPT
+      ========================================================
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+
+            // --- Hero Slider ---
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+            const prevButton = document.querySelector('.slider-prev');
+            const nextButton = document.querySelector('.slider-next');
+
+            function showSlide(n) {
+                if (n >= slides.length) { slideIndex = 0; }
+                if (n < 0) { slideIndex = slides.length - 1; }
+                
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                slides[slideIndex].classList.add('active');
+            }
+
+            function nextSlide() {
+                showSlide(++slideIndex);
+            }
+
+            function prevSlide() {
+                showSlide(--slideIndex);
+            }
+
+            prevButton.addEventListener('click', prevSlide);
+            nextButton.addEventListener('click', nextSlide);
+            
+            // Auto-play
+            let slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+            // Initial call
+            showSlide(slideIndex);
+
+            // --- Testimonial Slider ---
+            // This is a simple version. A real-world one might use a library.
+            let testimonialIndex = 0;
+            const testimonials = document.querySelectorAll('.testimonial-slide');
+            const testPrevButton = document.querySelector('.testimonial-prev');
+            const testNextButton = document.querySelector('.testimonial-next');
+            const track = document.querySelector('.testimonial-slider-track');
+
+            // Simple track styling (replace with flex/grid for better layout)
+            track.style.display = 'flex';
+            track.style.transition = 'transform 0.5s ease-in-out';
+
+            function showTestimonial(n) {
+                if (n >= testimonials.length) { testimonialIndex = 0; }
+                if (n < 0) { testimonialIndex = testimonials.length - 1; }
+                
+                // Hide all slides
+                testimonials.forEach(slide => {
+                    slide.style.display = 'none';
+                    slide.style.flexShrink = '0';
+                    slide.style.width = '100%';
+                });
+                
+                // Show the current one
+                testimonials[testimonialIndex].style.display = 'block';
+            }
+            
+            testPrevButton.addEventListener('click', () => showTestimonial(--testimonialIndex));
+            testNextButton.addEventListener('click', () => showTestimonial(++testimonialIndex));
+
+            // Initial call
+            showTestimonial(testimonialIndex);
+            
+            // Auto-play for testimonials
+            let testimonialInterval = setInterval(() => {
+                showTestimonial(++testimonialIndex);
+            }, 7000); // Change testimonial every 7 seconds
+        });
+    </script>
+
+</body>
+</html>

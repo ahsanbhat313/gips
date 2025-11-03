@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Guru Institute of Paramedical Sciences</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter as default font (good for professional use) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gips-blue': '#1e40af', // Darker Blue for primary elements
+                        'gips-light': '#3b82f6', // Lighter Blue for highlights
+                        'gips-bg': '#f9fafb', // Very light background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Custom styling for minor enhancements -->
+    <style>
+        /* Ensuring smooth scroll behavior */
+        html { scroll-behavior: smooth; }
+        /* Sticky header padding compensation */
+        body { padding-top: 64px; }
+    </style>
+</head>
+<body class="bg-gips-bg font-sans">
+
+    <!-- Fixed Header/Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Title -->
+                <a href="#" class="text-2xl font-extrabold text-gips-blue tracking-wide">
+                    GIPS <span class="text-gray-600 font-normal text-lg">| Paramedical</span>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">Home</a>
+                    <a href="#" class="text-gips-blue font-semibold border-b-2 border-gips-blue py-2">About Us</a>
+                    <a href="#" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">Courses</a>
+                    <a href="#" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">Admissions</a>
+                    <a href="#" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gips-light">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gips-blue bg-gips-bg">About Us</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">Courses</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">Admissions</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- 1. Hero Section - Introduction -->
+        <section class="mb-12">
+            <div class="bg-gips-blue text-white p-8 sm:p-12 rounded-2xl shadow-xl">
+                <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 border-b border-gips-light pb-2">Our Foundation, Our Vision</h1>
+                <p class="text-xl sm:text-2xl font-light opacity-90 mb-6">
+                    Welcome to the Guru Institute of Paramedical Sciences, shaping the future of healthcare professionals in the region.
+                </p>
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <p class="md:w-3/5 text-lg leading-relaxed">
+                        GIPS is dedicated to providing robust, skill-based education across critical paramedical and nursing disciplines. Our programs are designed to meet global standards and cater to the pressing demands of the modern healthcare sector. We are committed to fostering compassionate, competent, and career-ready graduates.
+                    </p>
+                    <div class="md:w-2/5 w-full">
+                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=GIPS+Campus+Photo" alt="GIPS Campus Building" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Mission, Vision, Values (Grid Layout) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            
+            <!-- Mission Card -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-4 border-gips-blue">
+                <div class="text-3xl text-gips-blue mb-4">
+                    <svg class="w-8 h-8 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9.25 10L12.5 7.5L15.75 10L15.25 17L9.75 17Z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"></path></svg>
+                    <span class="font-bold text-2xl text-gray-800">Our Mission</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                    To deliver exceptional paramedical education that combines theoretical knowledge with rigorous clinical practice, ensuring every graduate is ready for immediate professional contribution.
+                </p>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-4 border-gips-blue">
+                <div class="text-3xl text-gips-blue mb-4">
+                    <svg class="w-8 h-8 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <span class="font-bold text-2xl text-gray-800">Our Vision</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                    To be recognized as the premier institution for paramedical sciences in the region, setting benchmarks for educational standards, clinical training, and professional ethics.
+                </p>
+            </div>
+            
+            <!-- Values Card -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-4 border-gips-blue">
+                <div class="text-3xl text-gips-blue mb-4">
+                    <svg class="w-8 h-8 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14H11V21L20 10H13Z"></path></svg>
+                    <span class="font-bold text-2xl text-gray-800">Core Values</span>
+                </div>
+                <ul class="text-gray-600 list-disc pl-5 leading-relaxed space-y-1">
+                    <li>**Excellence:** Upholding the highest academic standards.</li>
+                    <li>**Integrity:** Maintaining transparency and ethical practice.</li>
+                    <li>**Compassion:** Fostering empathetic care in healthcare.</li>
+                    <li>**Innovation:** Embracing modern medical technologies.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Principal's Message Section -->
+        <section class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 mb-16">
+            <h2 class="text-3xl font-bold text-gips-blue mb-6 border-b border-gray-200 pb-2">Principal's Message</h2>
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <div class="md:w-3/4 text-lg text-gray-700 space-y-5">
+                    <p class="italic font-medium">
+                        "It is with immense pleasure that I welcome you to the Guru Institute of Paramedical Sciences. In today's dynamic healthcare environment, the need for well-trained, clinically astute paramedical staff is more critical than ever before. GIPS is committed not just to teaching, but to mentoring the next generation of life-savers."
+                    </p>
+                    <p>
+                        Our faculty and state-of-the-art facilities ensure a comprehensive learning experience for programs like BSc OT Technology, GNM, and MLT. We emphasize practical exposure, ethical responsibility, and community health service. We believe education is the bedrock of a better society, and we invite you to be a part of our transformative journey.
+                    </p>
+                    <div class="pt-4">
+                        <p class="font-semibold text-gips-blue">Dr. S. K. Wani</p>
+                        <p class="text-sm text-gray-500">Principal, Guru Institute of Paramedical Sciences</p>
+                    </div>
+                </div>
+                <div class="md:w-1/4 w-full flex justify-center">
+                    <img src="https://placehold.co/200x250/3b82f6/ffffff?text=Principal+Photo" alt="Photo of the Principal" class="rounded-lg shadow-lg border-4 border-gips-light">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Affiliations & Recognition -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-700 mb-4 border-b border-gray-300 pb-2">Recognition and Affiliation</h2>
+            <div class="flex flex-wrap gap-6 items-center justify-start">
+                <div class="bg-white p-4 rounded-lg shadow-md text-gray-600 font-semibold">
+                    Affiliated with [Specific University Name, e.g., University of Kashmir]
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md text-gray-600 font-semibold">
+                    Recognized by [Specific Council, e.g., J&K Paramedical Council]
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md text-gray-600 font-semibold">
+                    Accredited Training Partner
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-8 mt-10">
+        <div class="max-w-7xl mx-auto text-center text-sm">
+            <p>&copy; 2024 Guru Institute of Paramedical Sciences. All rights reserved.</p>
+            <p class="mt-2">Address: Sopore, J&K, India | Phone: [Your Contact Number]</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
+

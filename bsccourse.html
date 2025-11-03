@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Sc. Courses - Guru Institute of Paramedical Sciences</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter as default font and GIPS colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gips-blue': '#1e40af', // Darker Blue for primary elements
+                        'gips-light': '#3b82f6', // Lighter Blue for highlights
+                        'gips-bg': '#f9fafb', // Very light background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Custom styling for minor enhancements -->
+    <style>
+        html { scroll-behavior: smooth; }
+        body { padding-top: 64px; }
+    </style>
+</head>
+<body class="bg-gips-bg font-sans">
+
+    <!-- Fixed Header/Navigation Bar (Courses link is highlighted) -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Title -->
+                <a href="index.html" class="text-2xl font-extrabold text-gips-blue tracking-wide">
+                    GIPS <span class="text-gray-600 font-normal text-lg">| Paramedical</span>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">Home</a>
+                    <a href="aboutus.html" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">About Us</a>
+                    <a href="facilities.html" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">Facilities</a>
+                    <a href="courses.html" class="text-gips-blue font-semibold border-b-2 border-gips-blue py-2">Courses</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gips-light transition duration-150 py-2">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gips-light">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">Home</a>
+                <a href="about_us.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">About Us</a>
+                <a href="facilities.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">Facilities</a>
+                <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium text-gips-blue bg-gips-bg">Courses</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gips-bg hover:text-gips-blue">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- 1. Hero Section - B.Sc. Degree Focus -->
+        <section class="mb-12">
+            <div class="bg-gips-blue text-white p-8 sm:p-12 rounded-2xl shadow-xl">
+                <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 border-b border-gips-light pb-2">Bachelor of Science (B.Sc.) Programs</h1>
+                <p class="text-xl sm:text-2xl font-light opacity-90 mb-6">
+                    A strong foundation for clinical excellence. Full-time, three-year degree courses focused on specialized healthcare roles.
+                </p>
+                <p class="text-lg leading-relaxed md:w-4/5">
+                    Our B.Sc. programs are designed to create highly skilled, analytical, and critical-thinking paramedical professionals. These degree courses emphasize in-depth theoretical knowledge combined with extensive clinical training in affiliated hospitals.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. Course Catalog Grid - Focused on B.Sc. -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center border-b-2 border-gips-light pb-2 max-w-2xl mx-auto">Degree Programs Offered</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Course Card 1: BSc Operation Theatre Technology (OTT) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl border-t-4 border-gips-blue">
+                    <img src="https://placehold.co/600x250/1e40af/ffffff?text=B.Sc.+OT+Tech" alt="Operation Theatre Setup" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gips-blue mb-2">B.Sc. Operation Theatre Technology</h3>
+                        <p class="text-gray-600 mb-3 text-sm line-clamp-3">
+                            Training focused on aseptic practices, instrumentation, and patient monitoring during pre, intra, and post-operative procedures.
+                        </p>
+                        <div class="space-y-1 text-gray-700 text-xs">
+                            <p><span class="font-semibold">Duration:</span> 3 Years + Internship</p>
+                            <p><span class="font-semibold">Eligibility:</span> 10+2 Science (PCB)</p>
+                        </div>
+                        <a href="#" class="mt-4 block w-full text-center py-2 bg-gips-light text-white rounded-lg font-medium hover:bg-gips-blue transition duration-300 text-sm">
+                            Details & Apply
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course Card 2: BSc Medical Lab Technology (MLT) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl border-t-4 border-gips-blue">
+                    <img src="https://placehold.co/600x250/3b82f6/ffffff?text=B.Sc.+MLT" alt="Medical Laboratory Equipment" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gips-blue mb-2">B.Sc. Medical Lab Technology</h3>
+                        <p class="text-gray-600 mb-3 text-sm line-clamp-3">
+                            Comprehensive study of clinical chemistry, haematology, microbiology, and pathology essential for disease diagnosis.
+                        </p>
+                        <div class="space-y-1 text-gray-700 text-xs">
+                            <p><span class="font-semibold">Duration:</span> 3 Years</p>
+                            <p><span class="font-semibold">Eligibility:</span> 10+2 Science (PCB)</p>
+                        </div>
+                        <a href="#" class="mt-4 block w-full text-center py-2 bg-gips-light text-white rounded-lg font-medium hover:bg-gips-blue transition duration-300 text-sm">
+                            Details & Apply
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course Card 3: BSc Renal Dialysis Technology (RDT) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl border-t-4 border-gips-blue">
+                    <img src="https://placehold.co/600x250/60a5fa/ffffff?text=B.Sc.+RDT" alt="Dialysis Machine" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gips-blue mb-2">B.Sc. Renal Dialysis Technology</h3>
+                        <p class="text-gray-600 mb-3 text-sm line-clamp-3">
+                            Specialized course on operating dialysis machinery, monitoring patients, and maintaining equipment for kidney care.
+                        </p>
+                        <div class="space-y-1 text-gray-700 text-xs">
+                            <p><span class="font-semibold">Duration:</span> 3 Years</p>
+                            <p><span class="font-semibold">Eligibility:</span> 10+2 Science (PCB)</p>
+                        </div>
+                        <a href="#" class="mt-4 block w-full text-center py-2 bg-gips-light text-white rounded-lg font-medium hover:bg-gips-blue transition duration-300 text-sm">
+                            Details & Apply
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Course Card 4: BSc Radiology and Imaging Technology (RIT) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl border-t-4 border-gips-blue">
+                    <img src="https://placehold.co/600x250/93c5fd/ffffff?text=B.Sc.+RIT" alt="X-ray Imaging equipment" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gips-blue mb-2">B.Sc. Radiology & Imaging Tech</h3>
+                        <p class="text-gray-600 mb-3 text-sm line-clamp-3">
+                            Training in the use of sophisticated medical imaging techniques like X-ray, CT Scan, and MRI for diagnostic purposes.
+                        </p>
+                        <div class="space-y-1 text-gray-700 text-xs">
+                            <p><span class="font-semibold">Duration:</span> 3 Years</p>
+                            <p><span class="font-semibold">Eligibility:</span> 10+2 Science (PCB)</p>
+                        </div>
+                        <a href="#" class="mt-4 block w-full text-center py-2 bg-gips-light text-white rounded-lg font-medium hover:bg-gips-blue transition duration-300 text-sm">
+                            Details & Apply
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. Admission Requirements Note -->
+        <section class="text-center p-8 bg-white border border-gray-200 rounded-xl shadow-lg mt-10">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">Minimum Admission Requirement</h3>
+            <p class="mb-4 text-gray-600 md:text-lg">
+                Admission to all B.Sc. Paramedical courses requires a minimum of **10+2 (Higher Secondary)** qualification with **Physics, Chemistry, and Biology (PCB)** as core subjects from a recognized board.
+            </p>
+            <a href="#" class="inline-block px-8 py-3 bg-gips-blue text-white font-bold rounded-full shadow-lg hover:bg-gips-light transition duration-300">
+                Check Detailed Eligibility Criteria
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-8 mt-10">
+        <div class="max-w-7xl mx-auto text-center text-sm">
+            <p>&copy; 2024 Guru Institute of Paramedical Sciences. All rights reserved.</p>
+            <p class="mt-2">Address: Sopore, J&K, India | Phone: [Your Contact Number]</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
